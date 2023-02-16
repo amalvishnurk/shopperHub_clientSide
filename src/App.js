@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ProductList from './components/ProductList';
+import { Route, Routes } from 'react-router-dom';
+import Cart from './components/Cart';
+// import { createContext } from 'react';
+// import { useContext } from 'react';
+
+// const MyContext = createContext();
 
 function App() {
+  // const myFunction  = useContext(MyContext);
+  // console.log('my function',myFunction&&myFunction);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      {/* <MyContext.Provider value={myFunction&&myFunction}> */}
+      <header>
+        <Header />
       </header>
+
+      <Routes>
+        <Route path='/' element={<ProductList />} />
+        <Route path='/cart' element={<Cart />} />
+      </Routes>
+      <Footer />
+      {/* </MyContext.Provider> */}
     </div>
   );
 }
