@@ -10,6 +10,9 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import uuid from 'react-uuid'
+import './cart.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Cart() {
@@ -41,7 +44,17 @@ function Cart() {
     console.log(id);
     axios.post(`${baseurl}/deleteProduct`, { id })
       .then(result => {
-        alert(result.data.message)
+        // alert(result.data.message)
+        toast.warn(result.data.message, {
+          position: "top-right",
+          autoClose: 500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
         dispatch(CartList())
       })
 
@@ -55,6 +68,16 @@ function Cart() {
     axios.post(`${baseurl}/orderDetails`, { orderId, userName, email, mobile, totalPrice, cartList })
       .then(result => {
         alert(result.data.message)
+        // toast.success(result.data.message, {
+        //   position: "top-center",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        //   theme: "colored",
+        // });
         navigate('/')
       })
     axios.delete(`${baseurl}/emptyCart`)
@@ -65,7 +88,7 @@ function Cart() {
   }
 
   return (
-    <div>
+    <div className='cartDiv'>
       {cartList.length > 0 ?
         <>
           <h4 className='text-center mt-3'>My Shopping Cart </h4>
@@ -73,7 +96,7 @@ function Cart() {
             <thead>
               <tr>
                 <th>No</th>
-                <th>Product Name</th>
+                <th>Product</th>
                 <th>Image</th>
                 <th>Description</th>
                 <th>Price</th>
@@ -149,7 +172,9 @@ function Cart() {
             Continue shopping
           </Button>
         </Modal.Footer>
+        
       </Modal>
+      <ToastContainer />
     </div>
   )
 }

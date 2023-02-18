@@ -1,0 +1,42 @@
+footer{
+    height: 200px;
+    background-color: rgb(226, 185, 184);
+    border-radius: 10px;
+
+}
+.footer{
+   
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* width: 100%; */
+}
+
+.footer_button{
+background-color: rgb(201, 69, 69);
+color: #fff;
+border: none;
+border-radius: 10px;
+padding: 5px 15px;
+font-size: 15px;
+cursor: pointer;
+}
+
+.input_footer{
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+}
+
+.mains{
+    font-size: 30px;
+   display: flex;
+   align-items: center;
+   width: 100%;
+}
+
+.footerDiv{
+    
+}

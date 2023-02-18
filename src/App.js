@@ -14,7 +14,7 @@ function App() {
   // console.log('my function',myFunction&&myFunction);
 
   return (
-    <div className="App">
+    <div className="App ">
       {/* <MyContext.Provider value={myFunction&&myFunction}> */}
       <header>
         <Header />
